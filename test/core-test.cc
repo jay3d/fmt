@@ -641,7 +641,7 @@ struct convertible_to_pointer_formattable {
 
 FMT_BEGIN_NAMESPACE
 template <> struct formatter<convertible_to_pointer_formattable> {
-  auto parse(format_parse_context& ctx) -> decltype(ctx.begin()) {
+  FMT_CONSTEXPR auto parse(format_parse_context& ctx) -> decltype(ctx.begin()) {
     return ctx.begin();
   }
 
