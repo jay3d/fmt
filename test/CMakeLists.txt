@@ -111,7 +111,7 @@ if (FMT_MODULE)
   # because of visibility of implementation details.
   # If module support is present the module tests require a
   # test-only module to be built from {fmt}
-  add_library(test-module OBJECT ${CMAKE_SOURCE_DIR}/src/fmt.cc)
+  add_library(test-module OBJECT ${PROJECT_SOURCE_DIR}/src/fmt.cc)
   target_compile_features(test-module PUBLIC cxx_std_11)
   target_include_directories(test-module PUBLIC
     $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>)
@@ -188,7 +188,7 @@ if (FMT_PEDANTIC AND NOT WIN32)
     "-DCMAKE_CXX_FLAGS=${CMAKE_CXX_FLAGS}"
     "-DCMAKE_CXX_STANDARD=${CMAKE_CXX_STANDARD}"
     "-DCXX_STANDARD_FLAG=${CXX_STANDARD_FLAG}"
-    "-DFMT_DIR=${CMAKE_SOURCE_DIR}")
+    "-DFMT_DIR=${PROJECT_SOURCE_DIR}")
 
   # Test if the targets are found from the build directory.
   add_test(find-package-test ${CMAKE_CTEST_COMMAND}
